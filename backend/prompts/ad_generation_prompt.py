@@ -10,19 +10,7 @@ def build_linkedin_ad_prompt(
     footer_text: str
 ) -> str:
     
-    linkedin_ad_agent_role_and_goal = """
-    You are an expert in LinkedIn advertisement design and AI-driven image generation.
-    Propose a high-converting single-image LinkedIn ad based on user-provided inputs.
 
-    The ad must:
-    - Highlight the business value with a clear, simple visual metaphor
-    - Resonate with the specified professional audience
-    - Match the company’s branding (logo, color scheme, tone derived from website)
-    - Be instantly understandable in 1–2 seconds
-    - Follow proven LinkedIn ad best practices mentioned in {linkedin_ad_best_practices}:
-    - Follow the madatory rules mentioned in {linkedin_ad_agent_mandatory_rules}
-    - Follow the styles mentioned in {linkedin_ad_agent_styles}
-    """
     linkedin_ad_best_practices = """
 When generating a LinkedIn ad, you MUST follow these best practices derived from top-performing ads:
 
@@ -203,7 +191,19 @@ Ensure proportionality:
     """
 
     linkedin_ad_agent_styles=build_linkedin_ad_styles_prompt(company_url)
+    linkedin_ad_agent_role_and_goal = """
+    You are an expert in LinkedIn advertisement design and AI-driven image generation.
+    Propose a high-converting single-image LinkedIn ad based on user-provided inputs.
 
+    The ad must:
+    - Highlight the business value with a clear, simple visual metaphor
+    - Resonate with the specified professional audience
+    - Match the company’s branding (logo, color scheme, tone derived from website)
+    - Be instantly understandable in 1–2 seconds
+    - Follow proven LinkedIn ad best practices mentioned in {linkedin_ad_best_practices}:
+    - Follow the madatory rules mentioned in {linkedin_ad_agent_mandatory_rules}
+    - Follow the styles mentioned in {linkedin_ad_agent_styles}
+    """
 
     linkedin_ad_agent_chain_of_thought_directions = """
     Prepare for the task:
