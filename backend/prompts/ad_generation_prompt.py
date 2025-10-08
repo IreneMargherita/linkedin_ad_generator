@@ -228,6 +228,7 @@ Ensure proportionality:
     """
 
     linkedin_ad_agent_instruction = f"""
+{linkedin_ad_best_practices}
 {linkedin_ad_agent_role_and_goal}
 {linkedin_ad_agent_mandatory_rules}
 {linkedin_ad_agent_styles}
